@@ -2,50 +2,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Color Mixer - Create Your Own Colors!</title>
+    <title>Creator Studio</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Import map for future library use, if needed -->
+    <script type="importmap">
+        {
+          "imports": {
+
+          }
+        }
+    </script>
 </head>
 <body>
     <div class="app-container">
         <header>
-            <h1>Color Creator</h1>
-            <p>Mix colors, name them, and build your collection!</p>
+            <h1>Creator Studio</h1>
+            <p>Mix colors, animals, characters, or movies and build your collection!</p>
         </header>
 
-        <div class="main-content">
-            <div class="color-palette">
-                <h2>Select Colors (2-3)</h2>
-                <div class="color-grid" id="colorGrid"></div>
+        <div class="tabs">
+            <button class="tab-btn active" id="colorTabBtn">Color Creator</button>
+            <button class="tab-btn" id="animalTabBtn">Animal Mixer</button>
+            <button class="tab-btn" id="characterTabBtn">Character Creator</button>
+            <button class="tab-btn" id="movieMixTabBtn">Movie Mixer</button>
+        </div>
+
+        <div class="tab-content" id="colorTab">
+            <div class="main-content">
+                <div class="color-palette">
+                    <h2>Select Colors (2-3)</h2>
+                    <div class="color-grid" id="colorGrid"></div>
+                </div>
+
+                <div class="mixing-tray">
+                    <h2>Mixing Tray</h2>
+                    <div class="selected-colors" id="selectedColors"></div>
+                    <button id="mixColorsBtn" disabled>Mix Colors</button>
+                </div>
+
+                <div class="result-section">
+                    <h2>Your Creation</h2>
+                    <div class="result-color" id="resultColor">
+                         Mix colors to see the result
+                    </div>
+                    <div class="color-naming">
+                        <input type="text" id="colorName" placeholder="Name your color creation...">
+                        <button id="saveColorBtn" disabled>Save Color</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="mixing-tray">
-                <h2>Mixing Tray</h2>
-                <div class="selected-colors" id="selectedColors"></div>
-                <button id="mixColorsBtn" disabled>Mix Colors</button>
-            </div>
-
-            <div class="result-section">
-                <h2>Your Creation</h2>
-                <div class="result-color" id="resultColor"></div>
-                <div class="color-naming">
-                    <input type="text" id="colorName" placeholder="Name your color creation...">
-                    <button id="saveColorBtn" disabled>Save Color</button>
+            <div class="gallery-section">
+                <h2>Color Gallery</h2>
+                <div class="gallery" id="colorGallery">
+                    <p class="empty-gallery">Your saved colors will appear here</p>
                 </div>
             </div>
         </div>
 
-        <div class="gallery-section">
-            <h2>Color Gallery</h2>
-            <div class="gallery" id="colorGallery">
-                <p class="empty-gallery">Your saved colors will appear here</p>
+        <div class="tab-content" id="animalTab" style="display: none;">
+             <div class="main-content">
+                <div class="animal-palette">
+                    <h2>Select Animals (2-3)</h2>
+                    <div class="animal-grid" id="animalGrid"></div>
+                </div>
+
+                <div class="mixing-tray">
+                    <h2>Mixing Tray</h2>
+                    <div class="selected-animals" id="selectedAnimals"></div>
+                    <button id="mixAnimalsBtn" disabled>Mix Animals</button>
+                </div>
+
+                <div class="result-section">
+                    <h2>Your Creation</h2>
+                    <div class="result-animal" id="resultAnimal">
+                        Mix animals to see the result
+                    </div>
+                    <div class="animal-naming">
+                        <input type="text" id="animalName" placeholder="Name your animal creation...">
+                        <button id="saveAnimalBtn" disabled>Save Animal</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h2>Animal Gallery</h2>
+                <div class="gallery" id="animalGallery">
+                    <p class="empty-gallery">Your saved animals will appear here</p>
+                </div>
+            </div>
+        </div>
+
+         <div class="tab-content" id="characterTab" style="display: none;">
+             <div class="main-content">
+                <div class="character-palette">
+                    <h2>Select Traits (2-3)</h2>
+                    <div class="character-grid" id="characterGrid"></div>
+                </div>
+
+                <div class="mixing-tray">
+                    <h2>Mixing Tray</h2>
+                    <div class="selected-characters" id="selectedCharacters"></div>
+                    <button id="mixCharactersBtn" disabled>Create Character</button>
+                </div>
+
+                <div class="result-section">
+                    <h2>Your Creation</h2>
+                    <div class="result-character" id="resultCharacter">
+                         Select traits and click "Create Character"
+                    </div>
+                    <div class="character-naming">
+                        <input type="text" id="characterName" placeholder="Name your character creation...">
+                        <button id="saveCharacterBtn" disabled>Save Character</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h2>Character Gallery</h2>
+                <div class="gallery" id="characterGallery">
+                    <p class="empty-gallery">Your saved characters will appear here</p>
+                </div>
+            </div>
+        </div>
+
+         <div class="tab-content" id="movieMixTab" style="display: none;">
+             <div class="main-content">
+                <div class="movie-mix-palette">
+                    <h2>Select Movies (2-3)</h2>
+                    <div class="movie-mix-grid" id="movieMixGrid"></div>
+                </div>
+
+                <div class="mixing-tray">
+                    <h2>Mixing Tray</h2>
+                    <div class="selected-movies-mix" id="selectedMoviesMix"></div>
+                    <button id="mixMoviesMixBtn" disabled>Mix Movies</button>
+                </div>
+
+                <div class="result-section">
+                    <h2>Your Creation</h2>
+                    <div class="result-movie-mix" id="resultMovieMix">
+                         Select movies and click "Mix Movies"
+                    </div>
+                    <div class="movie-mix-naming">
+                        <input type="text" id="movieMixName" placeholder="Name your movie mix...">
+                        <button id="saveMovieMixBtn" disabled>Save Movie Mix</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h2>Movie Mix Gallery</h2>
+                <div class="gallery" id="movieMixGallery">
+                    <p class="empty-gallery">Your saved movie mixes will appear here</p>
+                </div>
             </div>
         </div>
 
         <footer>
-            <p>Have fun creating your own unique colors!</p>
+            <p>&copy; 2023 Creator Studio. Have fun creating!</p>
         </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
