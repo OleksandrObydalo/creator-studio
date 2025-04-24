@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Mixer - Create Your Own Colors!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Color Creator</h1>
+            <p>Mix colors, name them, and build your collection!</p>
+        </header>
+
+        <div class="main-content">
+            <div class="color-palette">
+                <h2>Select Colors (2-3)</h2>
+                <div class="color-grid" id="colorGrid"></div>
+            </div>
+
+            <div class="mixing-tray">
+                <h2>Mixing Tray</h2>
+                <div class="selected-colors" id="selectedColors"></div>
+                <button id="mixColorsBtn" disabled>Mix Colors</button>
+            </div>
+
+            <div class="result-section">
+                <h2>Your Creation</h2>
+                <div class="result-color" id="resultColor"></div>
+                <div class="color-naming">
+                    <input type="text" id="colorName" placeholder="Name your color creation...">
+                    <button id="saveColorBtn" disabled>Save Color</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <h2>Color Gallery</h2>
+            <div class="gallery" id="colorGallery">
+                <p class="empty-gallery">Your saved colors will appear here</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Have fun creating your own unique colors!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
